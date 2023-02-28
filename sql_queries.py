@@ -26,28 +26,63 @@ staging_songs_table_create = ("""
 songplay_table_create = ("""
                         CREATE TABLE IF NOT EXISTS songplays 
                         (
-                          songplay_id      int
-                          start_time       int
-                          user_id          int 
-                          level            varchar
-                          song_id          int 
-                          artist_id        int 
-                          session_id       int
-                          location         varchar 
-                          user_agent       varchar
+                          songplay_id      SERIAL           PRIMARY KEY,
+                          start_time       timestamp        NOT NULL,
+                          user_id          int              NOT NULL,
+                          level            varchar,
+                          song_id          int              NOT NULL, 
+                          artist_id        int              NOT NULL, 
+                          session_id       int,
+                          location         varchar, 
+                          user_agent       varchar,
+                        )
                         """)
 
 user_table_create = ("""
-""")
+                    CREATE TABLE IF NOT EXISTS users 
+                    (
+                        user_id         int             PRIMARY KEY, 
+                        first_name      varchar, 
+                        last_name       varchar, 
+                        gender          varchar, 
+                        level           varchar
+                    )
+                    """)
 
 song_table_create = ("""
-""")
+                    CREATE TABLE IF NOT EXISTS songs 
+                    (
+                        song_id       varchar         PRIMARY KEY, 
+                        title         varchar         NOT NULL, 
+                        artist_id     varchar, 
+                        year          int, 
+                        duration      float           NOT NULL
+                    )
+                    """)
 
 artist_table_create = ("""
-""")
+                       CREATE TABLE IF NOT EXISTS artists 
+                       (
+                           artist_id      varchar     PRIMARY KEY, 
+                           name           varchar     NOT NULL, 
+                           location       varchar, 
+                           latitude       real, 
+                           longitude      real
+                        )
+                        """)
 
 time_table_create = ("""
-""")
+                    CREATE TABLE IF NOT EXISTS time 
+                    (
+                        start_time       timestamp    PRIMARY KEY, 
+                        hour             int, 
+                        day              int, 
+                        week             int, 
+                        month            int, 
+                        year             int, 
+                        weekday          int
+                    )
+                    """)
 
 # STAGING TABLES
 
