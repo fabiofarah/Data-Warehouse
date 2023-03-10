@@ -18,9 +18,38 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 # CREATE TABLES
 
 staging_events_table_create= ("""
+artist
+auth
+firstName
+gender
+itemInSession
+lastName
+lenght
+level
+location
+method
+page
+registration
+sessionId
+song
+status
+ts
+userAgent
+userId
+
 """)
 
 staging_songs_table_create = ("""
+                      num_songs
+                      artist_id
+                      artist_latitude
+                      artist_longitude
+                      artist_location
+                      artist_name
+                      song_id
+                      title
+                      duration
+                      year
 """)
 
 songplay_table_create = ("""
